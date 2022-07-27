@@ -4,6 +4,10 @@ const wax = require('wax-on');
 
 const app = express();
 
+app.set('view engine', 'hbs');
+wax.on(hbs.handlebars);
+wax.setLayoutPath('./views/layouts');
+
 // ROUTES
 // immediatey invoked function
 (async function(){
@@ -12,7 +16,7 @@ const app = express();
     const productRoutes = require('./routes/products');
 
     app.use('/', landingRoutes);
-    app.use('/products', productRoutes)
+    app.use('/posters', productRoutes);
 })();
 
 app.listen(3000, function(){
